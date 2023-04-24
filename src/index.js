@@ -9,8 +9,6 @@ const lightbox = new SimpleLightbox('.photo-card', {
   captionsData: 'alt',
 });
 
-console.log(lightbox.refresh);
-
 const gallery = document.querySelector('.gallery');
 const form = document.querySelector('.search-form');
 const buttonLoad = document.querySelector('.load-more');
@@ -89,7 +87,6 @@ function putPictures(pictures) {
     .join('');
   gallery.insertAdjacentHTML('beforeend', listHTML);
   lightbox.refresh();
-  console.log(lightbox);
 }
 
 async function onLoadMore() {
