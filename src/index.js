@@ -36,7 +36,7 @@ async function onSubmit(event) {
       }
       category = inputValue;
       putPictures(hits);
-      buttonLoad.classList.remove('hidden');
+      !(totalHits <= hits.length) && buttonLoad.classList.remove('hidden');
       Notify.success(`Hooray! We found ${totalHits} images.`);
     } catch (err) {
       Notify.failure('Oops, something went wrong...');
@@ -107,7 +107,7 @@ async function onLoadMore() {
 }
 
 function isEnd(totalHits, page) {
-  return Math.round(totalHits / 40) === page;
+  return Math.ceil(totalHits / 40) === page;
 }
 
 function autoScroll() {
